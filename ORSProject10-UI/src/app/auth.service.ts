@@ -36,19 +36,22 @@ export class AuthService implements HttpInterceptor {
     
     return next.handle(req).pipe(
       catchError(err => {
-        if (err.status === 401 || err.status === 403) {
-          localStorage.clear();
-         
-          this.router.navigateByUrl('/login/truee');
+       if (err.status === 401 || err.status === 403) {
+      localStorage.clear();
+      this.router.navigateByUrl('/login/truee');
 
-        }
-         // 🟠 Database / system down
+      // ⛔ stop here, don't propagate error
+      return EMPTY;
+    }
+
+    // 🟠 Database / system down
     if (err.status === 503) {
-      // let component handle message
+      // let service/component show message
       return throwError(() => err);
     }
-        return throwError(err);
-      })
+
+    return throwError(() => err);
+  })
     );
 
   }
