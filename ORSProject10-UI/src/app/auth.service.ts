@@ -42,6 +42,11 @@ export class AuthService implements HttpInterceptor {
           this.router.navigateByUrl('/login/truee');
 
         }
+         // 🟠 Database / system down
+    if (err.status === 503) {
+      // let component handle message
+      return throwError(() => err);
+    }
         return throwError(err);
       })
     );
