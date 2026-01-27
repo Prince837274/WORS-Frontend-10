@@ -61,9 +61,9 @@ export class LoginComponent implements OnInit {
     if(a=='true'){
        this.form.message = 'Logout Successfully';
      }
-     if(a=='truee'){
-       this.form.message = 'Your Session has been Expired! Please Re-Login';
-     }
+     // if(a=='truee'){
+     //   this.form.message = 'Your Session has been Expired! Please Re-Login';
+     // }
      if(a=='trueee'){
        this.form.message = 'Database service is currently unavailable. Please try again later.';
      }
