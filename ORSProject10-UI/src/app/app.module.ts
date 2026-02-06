@@ -54,6 +54,8 @@ import { AuthService } from './auth.service';
 import { MyprofileComponent } from './user/myprofile.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { EmployeelistComponent } from './employee/employeelist.component';
+import { CustomerComponent } from './customer/customer.component';
+import { CustomerlistComponent } from './customer/customer-list.component';
 
 
 
@@ -108,7 +110,9 @@ export function myHttpLoader(http: HttpClient) {
     FooterComponent,
     MyprofileComponent,
     EmployeeComponent,
-    EmployeelistComponent
+    EmployeelistComponent,
+    CustomerComponent,
+    CustomerlistComponent
 
   
  

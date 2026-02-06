@@ -81,6 +81,21 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul *ngIf="form.data.role=='Admin'" class="nav navbar-nav pl-2">
       
+<!-- =================================== CUSTOMER =========================================== -->
+
+      <li class="nav-item dropdown" style="padding-left: 5px">
+        <a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <font style="color: white">{{ "Customer" | translate }}</font>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['/customer']"><i class="fa fa-university"></i> &nbsp;
+            {{ "Add Customer" | translate }}</a>
+          <a class="dropdown-item" [routerLink]="['/customerlist']"><i class="fa fa-building"></i> &nbsp;
+            {{ "Customer List" | translate }}
+          </a>
+        </div>
+
         <!-- =================================== USER =========================================== -->
 
       <li class="nav-item dropdown" style="padding-left: 5px">
@@ -199,6 +214,9 @@
             }}</a>
         </div>
       </li>
+
+      
+        
 
       <li class="nav-item dropdown" style="padding-left: 5px">
         <a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button"
