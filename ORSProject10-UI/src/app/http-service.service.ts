@@ -1,3 +1,4 @@
+
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
@@ -86,47 +87,54 @@ export class HttpServiceService {
   //   });
   // }
 
-  post(endpoint, bean, callback, errorCallback?) {
+ post(endpoint, bean, callback, errorCallback?) {
 
-    // if (this.isLogout()) {
-    //   console.log('inside isLogout return true');
-    //   return;
-    // }
+  return this.httpClient.post(endpoint, bean).subscribe(
+    (data) => {
+      console.log(data);
+      callback(data);
+    },
 
-    return this.httpClient.post(endpoint, bean).subscribe((data) => {
+    (error) => {
+      console.log('ORS Error--', error);
 
-        console.log(data);
-        callback(data);
-        
-      }, (error) => {
-        console.log('ORS Error--', error);
-
-        let msg = 'Service is currently unavailable';
-
-        if (error && error.error && error.error.result && error.error.result.message) {
-          msg = error.error.result.message;
-
-          console.log('@#@#@#@#@#@#@# >>>>>> ' + msg)
-        }
-
-        const errorRes = {
-          success: false,
-          result: {
-            message: msg
-          }
-        };
-
-        callback(errorRes);
-
+      // 🔐 Auth error → let interceptor / caller handle logout
+      if (error.status === 401 || error.status === 403) {
         if (errorCallback) {
           errorCallback(error);
         }
+        return; // ⛔ STOP here
       }
 
-    );
-  }
+      // 🟠 System / DB error
+      let msg = 'Database service is currently unavailable. Please try again later.';
 
+      if (
+        error.status === 503 &&
+        error.error &&
+        error.error.messages &&
+        error.error.messages.length > 0
+      ) {
+        msg = error.error.messages[0];
+      }
 
+      const errorRes = {
+        success: false,
+        status: error.status,   // ⭐ IMPORTANT
+        result: {
+          message: msg
+        }
+      };
+
+      // ✅ component ko proper error milega
+      callback(errorRes);
+
+      if (errorCallback) {
+        errorCallback(error);
+      }
+    }
+  );
 }
 
 
+}
