@@ -49,7 +49,7 @@ export class HttpServiceService {
       this.form.error = true;
       this.userparams.url = this.router.url;// to navigate the URI request.
       this.router.navigateByUrl("/login");
-      console.log("Sushobhit pandey");
+      console.log("Prince Bharti");
 
       return true;
     } else {
@@ -71,7 +71,8 @@ export class HttpServiceService {
   }, error => {
     console.log('ORS Error--', error);
 
-    
+    let msg: string = 'Something went wrong';
+
     if (error && error.error && error.error.message && error.error.message.length > 0) {
       msg = error.error.message[0];
     }
