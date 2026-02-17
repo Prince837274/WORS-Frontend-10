@@ -34,10 +34,12 @@ import { ChangepasswordComponent } from "./user/changepassword.component";
 import { LoaderComponent } from './loader/loader.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { MyprofileComponent } from './user/myprofile.component';
-import { EmployeeComponent } from './employee/employee.component';
-import { EmployeelistComponent } from './employee/employeelist.component';
+
 import { CustomerComponent } from './customer/customer.component';
 import { CustomerlistComponent } from './customer/customer-list.component';
+
+import { DeviceComponent } from './device/device.component';
+import { DeviceListComponent } from './device/device-list.component';
 
 
 
@@ -257,21 +259,7 @@ const routes: Routes = [
         path: 'changepassword',
         component: ChangepasswordComponent
     },
-    {
-        path: 'employee',
-        component: EmployeeComponent
-
-    },
-    {
-        path: 'employee/:id',
-        component: EmployeeComponent
-
-    },
-    {
-        path: 'employeelist',
-        component: EmployeelistComponent
-
-    },
+    
     {
         path: 'customer',
         component: CustomerComponent
@@ -283,6 +271,18 @@ const routes: Routes = [
     {
         path: 'customerlist',
         component: CustomerlistComponent
+    },
+    {
+        path: 'device',
+        component: DeviceComponent
+    },
+    {
+        path: 'device/:id',
+        component: DeviceComponent
+    },
+    {
+        path: 'devicelist',
+        component: DeviceListComponent
     }
     
 

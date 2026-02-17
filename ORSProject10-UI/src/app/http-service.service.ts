@@ -1,7 +1,6 @@
 
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router'
 
 
@@ -9,7 +8,7 @@ import { Router } from '@angular/router'
 
 export class HttpServiceService {
 
-
+msg=''
   token = '';
   form = {
     message: '',
@@ -51,7 +50,7 @@ export class HttpServiceService {
       this.form.error = true;
       this.userparams.url = this.router.url;// to navigate the URI request.
       this.router.navigateByUrl("/login");
-      console.log("Amit Bansal");
+      console.log("Prince Bharti");
 
       return true;
     } else {
@@ -61,35 +60,41 @@ export class HttpServiceService {
 
 
   get(endpoint, callback) {
-    // if (this.isLogout()) {
-    //   console.log('inside isLogout() return true');
-    //   return true;
-    // }
-    return this.httpClient.get(endpoint).subscribe((data) => {
-      console.log('Data :: ' + data);
-      callback(data);
-
-    });
+  if (this.isLogout()) {
+    console.log('inside isLogout() return true');
+    return true;
   }
 
-  // post(endpoint, bean, callback) {
-  //   // if (this.isLogout()) {
-  //   //   console.log('inside isLogout return true')
-  //   //   return true;
-  //   // }
-  //   return this.httpClient.post(endpoint, bean).subscribe((data) => {
-  //     console.log(data);
-  //     callback(data);
+  return this.httpClient.get(endpoint).subscribe(function (data) {
+    console.log('Data :: ' + data);
+    callback(data);
 
-  //   }, error => {
+  }, error => {
+    console.log('ORS Error--', error);
 
-  //     console.log('ORS Error--', error);
-  //   });
-  // }
+    if (error && error.error && error.error.message && error.error.message.length > 0) {
+      this.msg = error.error.message[0];
+    }
 
- post(endpoint, bean, callback, errorCallback?) {
+    const customError = {
+      status: error.status,
+      message: this.msg
+    };
+
+    callback(null, customError);
+  });
+}
+
+
+  post(endpoint, bean, callback, errorCallback?) {
+
+  if (this.isLogout()) {
+    console.log('inside isLogout return true');
+    return;
+  }
 
   return this.httpClient.post(endpoint, bean).subscribe(
+
     (data) => {
       console.log(data);
       callback(data);
@@ -98,41 +103,24 @@ export class HttpServiceService {
     (error) => {
       console.log('ORS Error--', error);
 
-      // 🔐 Auth error → let interceptor / caller handle logout
-      if (error.status === 401 || error.status === 403) {
-        if (errorCallback) {
-          errorCallback(error);
-        }
-        return; // ⛔ STOP here
-      }
-
-      // 🟠 System / DB error
-      let msg = 'Database service is currently unavailable. Please try again later.';
-
-      if (
-        error.status === 503 &&
-        error.error &&
-        error.error.messages &&
-        error.error.messages.length > 0
-      ) {
-        msg = error.error.messages[0];
+      if (error && error.error && error.error.result && error.error.result.message) {
+        this.msg = error.error.result.message;
       }
 
       const errorRes = {
         success: false,
-        status: error.status,   // ⭐ IMPORTANT
         result: {
-          message: msg
+          message: this.msg
         }
       };
 
-      // ✅ component ko proper error milega
       callback(errorRes);
 
       if (errorCallback) {
         errorCallback(error);
       }
     }
+
   );
 }
 

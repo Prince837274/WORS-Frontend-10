@@ -42,12 +42,6 @@ background-size: cover;width:100%;
             {{form.message}}
           </div>
           
-<div *ngIf="form.error && form.message == 'Database service is currently unavailable. Please try again later.'"
-            class="alert alert-danger alert-dismissible">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            {{form.message | translate}}
-          </div>
-          
           <div *ngIf="form.error && form.message != null" class="alert alert-danger alert-dismissible">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
             {{form.message}}
