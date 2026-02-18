@@ -40,6 +40,9 @@ import { CustomerlistComponent } from './customer/customer-list.component';
 
 import { DeviceComponent } from './device/device.component';
 import { DeviceListComponent } from './device/device-list.component';
+import { EmployeeComponent } from './employee/employee.component';
+import { EmployeelistComponent } from './employee/employee-list.component';
+
 
 
 
@@ -283,7 +286,24 @@ const routes: Routes = [
     {
         path: 'devicelist',
         component: DeviceListComponent
+    },
+    {
+        path:'employee',
+        component: EmployeeComponent
+
+    },
+    {
+        path: 'employee/:id',
+        component: EmployeeComponent
+    },
+    {
+        path: 'employeelist',
+        component: EmployeelistComponent
     }
+        
+        
+
+    
     
 
 

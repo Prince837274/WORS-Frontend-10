@@ -26,6 +26,11 @@ export class EndpointServiceService {
   public CUSTOMER = this.SERVER_URL + "/Customer"
  
   public DEVICE= this.SERVER_URL + "/device"
+
+  public EMPLOYEE= this.SERVER_URL + "/Employee"
+ 
+ 
+ 
  
  
  

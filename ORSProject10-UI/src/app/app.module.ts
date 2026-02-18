@@ -60,6 +60,8 @@ import { CustomerlistComponent } from './customer/customer-list.component';
 
 import { DeviceComponent } from './device/device.component';
 import { DeviceListComponent } from './device/device-list.component';
+import { EmployeeComponent } from './employee/employee.component';
+import { EmployeelistComponent } from './employee/employee-list.component';
 
 
 
@@ -120,9 +122,10 @@ export function myHttpLoader(http: HttpClient) {
     
     
     DeviceComponent,
-    DeviceListComponent
-
-  
+    DeviceListComponent,
+    
+    EmployeeComponent,
+    EmployeelistComponent
  
 
     
