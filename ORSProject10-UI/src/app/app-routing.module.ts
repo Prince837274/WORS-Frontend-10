@@ -42,6 +42,8 @@ import { DeviceComponent } from './device/device.component';
 import { DeviceListComponent } from './device/device-list.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { EmployeelistComponent } from './employee/employee-list.component';
+import { VendorComponent } from './vendor/vendor.component';
+import { VendorListComponent } from './vendor/vendor-list.component';
 
 
 
@@ -299,6 +301,18 @@ const routes: Routes = [
     {
         path: 'employeelist',
         component: EmployeelistComponent
+    },
+    {
+        path: 'vendor',
+        component: VendorComponent
+    },
+    {
+        path: 'vendor/:id',
+        component: VendorComponent
+    },
+    {
+        path: 'vendorlist' ,
+        component: VendorListComponent
     }
         
         

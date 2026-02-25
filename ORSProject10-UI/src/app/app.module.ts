@@ -62,6 +62,8 @@ import { DeviceComponent } from './device/device.component';
 import { DeviceListComponent } from './device/device-list.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { EmployeelistComponent } from './employee/employee-list.component';
+import { VendorComponent } from './vendor/vendor.component';
+import { VendorListComponent } from './vendor/vendor-list.component';
 
 
 
@@ -125,7 +127,9 @@ export function myHttpLoader(http: HttpClient) {
     DeviceListComponent,
     
     EmployeeComponent,
-    EmployeelistComponent
+    EmployeelistComponent,
+    VendorComponent,
+    VendorListComponent
  
 
     
