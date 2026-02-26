@@ -34,10 +34,10 @@
         <div class="card-body shadow-lg grad">
           <form name="assetForm">
             <h2 *ngIf="!form.data.id > 0" class="text-primary font-weight-bold" style="text-align: center;">
-              {{ 'Add employee' | translate }}
+              {{ 'Add Library' | translate }}
             </h2>
             <h2 *ngIf="form.data.id > 0" class="text-primary font-weight-bold" style="text-align: center;">
-              {{ 'Update employee' | translate }}
+              {{ 'Update Library' | translate }}
             </h2>
 
             <!-- Form error messages -->
@@ -54,7 +54,7 @@
 
             <div class="form-group pt-2">
               <label>
-                <b>{{ 'Name' | translate }}</b>
+                <b>{{ 'LibraryName' | translate }}</b>
                 <span class="required-field">*</span>
               </label>
 
@@ -63,36 +63,39 @@
                   <div class="input-group-text"><i class="fa fa-user grey-text"></i></div>
                 </div>
 
-                <input type="text" name="name" [(ngModel)]="form.data.name" class="form-control"
+                <input type="text" name="libraryName" [(ngModel)]="form.data.libraryName" class="form-control"
                   #name="ngModel" maxlength="20" pattern="^[A-Za-z ]+$"
                   (keydown)="filterInputS($event, 'errorMessagename', 20, 'char')"
-                  placeholder="{{ 'Enter Name' | translate }}">
+                  placeholder="{{ 'Enter LibraryName' | translate }}">
               </div>
 
               <!-- Custom error messages from component -->
-              <span *ngIf="form.inputerror.name" class="alertRedColor">{{ form.inputerror.name }}</span>
+              <span *ngIf="form.inputerror.libraryName" class="alertRedColor">{{ form.inputerror.libraryName }}</span>
             </div>
 
-
             <div class="form-group pt-2">
-              <label>
-                <b>{{ 'salary' | translate }}</b>
-                <span class="required-field">*</span>
-              </label>
+              <label><b>{{ 'Location' | translate }}</b><span class="required-field">*</span></label>
               <div class="input-group">
                 <div class="input-group-prepend">
-                  <div class="input-group-text"><i class="fas fa-map-marker grey-text"></i></div>
+                  <div class="input-group-text"><i class="fa fa-paint-brush grey-text"></i></div>
                 </div>
-                <input type="text" name="salary" [(ngModel)]="form.data.salary" class="form-control"
-                   min="0" step="1000" maxlength="35"
-                  placeholder="{{ 'Enter salary' | translate }}">
+                <select class="form-control" name="location" [(ngModel)]="form.data.location"
+                  aria-label="ngSelected" required>
+                  <option [ngValue]="undefined">{{ 'Select Location' | translate }}</option>
+                  <option value="indore">{{ 'Indore' | translate }}</option>
+                  <option value="pune">{{ 'Pune' | translate }}</option>
+                  <option value="mumbai">{{ 'Mumbai' | translate }}</option>
+                </select>
               </div>
-              <span *ngIf="form.inputerror.salary" class="alertRedColor">{{ form.inputerror.salary }}</span>
+              <span *ngIf="form.inputerror?.location" class="alertRedColor">{{ form.inputerror.location }}</span>
             </div>
+
+
+            
 
             <div class="form-group pt-2">
               <label>
-                <b>{{ 'post' | translate }}</b>
+                <b>{{ 'TotalBooks' | translate }}</b>
                 <span class="required-field">*</span>
               </label>
 
@@ -103,34 +106,19 @@
                   </div>
                 </div>
 
-                <input type="text" name="post" [(ngModel)]="form.data.post" #post="ngModel"
+                <input type="text" name="totalBooks" [(ngModel)]="form.data.totalBooks" #post="ngModel"
                   class="form-control"  maxlength="20" pattern="^[0-9]{10}$"
                   (keydown)="filterInputS($event, 'errorMessagepost', 10, 'int')"
-                  placeholder="{{ 'Enter post' | translate }}">
+                  placeholder="{{ 'Enter totalBooks' | translate }}">
               </div>
 
               <!-- Custom validation messages from component -->
-              <span *ngIf="form.inputerror?.post" class="alertRedColor">{{ form.inputerror.post
+              <span *ngIf="form.inputerror?.totalBooks" class="alertRedColor">{{ form.inputerror.totalBooks
                 }}</span>
             </div>
 
 
-            <div class="form-group pt-2">
-              <label><b>{{ 'address' | translate }}</b><span class="required-field">*</span></label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <div class="input-group-text"><i class="fa fa-paint-brush grey-text"></i></div>
-                </div>
-                <select class="form-control" name="address" [(ngModel)]="form.data.address"
-                  aria-label="ngSelected" required>
-                  <option [ngValue]="undefined">{{ 'Select address' | translate }}</option>
-                  <option value="indore">{{ 'Indore' | translate }}</option>
-                  <option value="pune">{{ 'Pune' | translate }}</option>
-                  <option value="mumbai">{{ 'Mumbai' | translate }}</option>
-                </select>
-              </div>
-              <span *ngIf="form.inputerror?.address" class="alertRedColor">{{ form.inputerror.address }}</span>
-            </div>
+            
 
             <div class="row pt-2 pl-2 pb-3">
 
@@ -151,7 +139,7 @@
               </div>
 
               <div class="pt-2">
-                <a class="btn btn-warning mr-1" type="button" [routerLink]="['/employeelist']"
+                <a class="btn btn-warning mr-1" type="button" [routerLink]="['/librarylist']"
                   style="text-decoration: none; color: white;">
                   {{ 'List' | translate }}
                 </a>

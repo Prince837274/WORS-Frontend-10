@@ -44,6 +44,8 @@ import { EmployeeComponent } from './employee/employee.component';
 import { EmployeelistComponent } from './employee/employee-list.component';
 import { VendorComponent } from './vendor/vendor.component';
 import { VendorListComponent } from './vendor/vendor-list.component';
+import { LibraryComponent } from './library/library.component';
+import { LibraryListComponent } from './library/library-list.component';
 
 
 
@@ -313,6 +315,18 @@ const routes: Routes = [
     {
         path: 'vendorlist' ,
         component: VendorListComponent
+    },
+    {
+        path: 'library',
+        component: LibraryComponent
+    },
+    {
+        path: 'library/:id',
+        component: LibraryComponent
+    },
+    {
+        path: 'librarylist',
+        component: LibraryListComponent
     }
         
         

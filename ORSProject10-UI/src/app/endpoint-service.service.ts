@@ -30,6 +30,11 @@ export class EndpointServiceService {
   public EMPLOYEE= this.SERVER_URL + "/Employee"
 
   public VENDOR= this.SERVER_URL + "/Vendor"
+
+  public LIBRARY= this.SERVER_URL + "/Library"
+ 
+ 
+ 
  
  
  
