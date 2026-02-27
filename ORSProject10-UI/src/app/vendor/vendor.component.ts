@@ -43,7 +43,7 @@ export class VendorComponent extends BaseCtl implements OnInit {
     form.contactNumber = data.contactNumber;
   }
 
-  validateName(event: KeyboardEvent): void {
+validateName(event: KeyboardEvent): void {
 
   const inputElement = event.target as HTMLInputElement;
   const inputChar = event.key;
@@ -85,4 +85,4 @@ export class VendorComponent extends BaseCtl implements OnInit {
     }
   }
 
-}
+}  

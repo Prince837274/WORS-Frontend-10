@@ -46,6 +46,8 @@ import { VendorComponent } from './vendor/vendor.component';
 import { VendorListComponent } from './vendor/vendor-list.component';
 import { LibraryComponent } from './library/library.component';
 import { LibraryListComponent } from './library/library-list.component';
+import { BankComponent } from './bank/bank.component';
+import { BankListComponent } from './bank/bank-list.component';
 
 
 
@@ -327,6 +329,18 @@ const routes: Routes = [
     {
         path: 'librarylist',
         component: LibraryListComponent
+    },
+    {
+        path: 'bank',
+        component: BankComponent
+    },
+    {
+        path: 'bank/:id',
+        component: BankComponent
+    },
+    {
+        path: 'banklist',
+        component: BankListComponent
     }
         
         
