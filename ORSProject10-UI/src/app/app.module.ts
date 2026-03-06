@@ -68,6 +68,8 @@ import { LibraryComponent } from './library/library.component';
 import { LibraryListComponent } from './library/library-list.component';
 import { BankComponent } from './bank/bank.component';
 import { BankListComponent } from './bank/bank-list.component';
+import { EventComponent } from './event/event.component';
+import { EventListComponent } from './event/event-list.component';
 
 
 
@@ -137,7 +139,9 @@ export function myHttpLoader(http: HttpClient) {
     LibraryComponent,
     LibraryListComponent,
     BankComponent,
-    BankListComponent
+    BankListComponent,
+    EventComponent,
+    EventListComponent
  
 
     

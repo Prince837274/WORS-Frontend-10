@@ -48,6 +48,8 @@ import { LibraryComponent } from './library/library.component';
 import { LibraryListComponent } from './library/library-list.component';
 import { BankComponent } from './bank/bank.component';
 import { BankListComponent } from './bank/bank-list.component';
+import { EventComponent } from './event/event.component';
+import { EventListComponent } from './event/event-list.component';
 
 
 
@@ -341,6 +343,18 @@ const routes: Routes = [
     {
         path: 'banklist',
         component: BankListComponent
+    },
+    {
+        path: 'event',
+        component: EventComponent
+    },
+    {
+        path: 'event/:id',
+        component: EventComponent
+    },
+    {
+        path: 'eventlist',
+        component: EventListComponent
     }
         
         
