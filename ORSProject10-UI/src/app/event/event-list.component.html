@@ -64,15 +64,22 @@
 
         
 
-        <div class="col-sm-2">
-          <select class="form-control" name="eventName" [(ngModel)]="form.searchParams.eventName"
-            aria-label="ngSelected" required>
-            <option [ngValue]="undefined">{{ 'Select Event Name' | translate }}</option>
-            <option value="Music Festival">{{ 'Music Festival' | translate }}</option>
-            <option value="Tech Conference">{{ 'Tech Conference' | translate }}</option>
-            <option value="Startup Meetup">{{ 'Startup Meetup' | translate }}</option>
-          </select>
-        </div>
+       <div class="col-sm-2">
+  <select class="form-control" name="eventName" [(ngModel)]="form.searchParams.eventName"
+    aria-label="ngSelected" required>
+
+    <option [ngValue]="undefined">{{ 'Select Event Name' | translate }}</option>
+
+    <option value="Music Festival">{{ 'Music Festival' | translate }}</option>
+    <option value="Tech Conference">{{ 'Tech Conference' | translate }}</option>
+    <option value="Startup Meetup">{{ 'Startup Meetup' | translate }}</option>
+    <option value="Food Carnival">{{ 'Food Carnival' | translate }}</option>
+    <option value="Business Summit">{{ 'Business Summit' | translate }}</option>
+    <option value="Art Exhibition">{{ 'Art Exhibition' | translate }}</option>
+    <option value="Sports Tournament">{{ 'Sports Tournament' | translate }}</option>
+
+  </select>
+</div>
 
         <div class="col-sm-1">
           <button (click)="submit()" class="btn btn-primary w-100">{{ 'Search' | translate }}</button>
