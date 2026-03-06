@@ -67,7 +67,7 @@
         <div class="col-sm-2">
           <select class="form-control" name="eventName" [(ngModel)]="form.searchParams.eventName"
             aria-label="ngSelected" required>
-            <option [ngValue]="undefined">{{ 'Select eventName' | translate }}</option>
+            <option [ngValue]="undefined">{{ 'Select Event Name' | translate }}</option>
             <option value="Music Festival">{{ 'Music Festival' | translate }}</option>
             <option value="Tech Conference">{{ 'Tech Conference' | translate }}</option>
             <option value="Startup Meetup">{{ 'Startup Meetup' | translate }}</option>
@@ -79,7 +79,7 @@
         </div>
 
         <div>
-          <button (click)="forward('/customer')" type="button" class="btn btn-success w-100">
+          <button (click)="forward('/event')" type="button" class="btn btn-success w-100">
             {{ 'Add Event' | translate }}
           </button>
         </div>
