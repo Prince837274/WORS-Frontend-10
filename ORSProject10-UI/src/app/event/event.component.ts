@@ -15,9 +15,9 @@ export class EventComponent extends BaseCtl implements OnInit {
   constructor(public locator: ServiceLocatorService, public route: ActivatedRoute) {
     super(locator.endpoints.EVENT, locator, route);
   }
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+  
+  
+  
 
    onUpload(userform: FormData) {
     this.submit();
