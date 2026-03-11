@@ -4,17 +4,18 @@ import { ServiceLocatorService } from '../service-locator.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-event',
-  templateUrl: './event.component.html',
-  styleUrls: ['./event.component.css']
+  selector: 'app-charity',
+  templateUrl: './charity.component.html',
+  styleUrls: ['./charity.component.css']
 })
-export class EventComponent extends BaseCtl implements OnInit {
+export class CharityComponent extends BaseCtl implements OnInit {
 
   errorMessageName: string = '';
 
   constructor(public locator: ServiceLocatorService, public route: ActivatedRoute) {
-    super(locator.endpoints.EVENT, locator, route);
+    super(locator.endpoints.CHARITY, locator, route);
   }
+
    onUpload(userform: FormData) {
     this.submit();
     console.log(this.form.data.id + '---- after submit');
@@ -26,19 +27,20 @@ export class EventComponent extends BaseCtl implements OnInit {
   validateForm(form) {
     let flag = true;
     let validator = this.serviceLocator.dataValidator;
-    flag = flag && validator.isNotNullObject(form.eventName);
-    flag = flag && validator.isNotNullObject(form.bookingDate);
-    flag = flag && validator.isNotNullObject(form.seats);
-    
+    flag = flag && validator.isNotNullObject(form.donorName);
+    flag = flag && validator.isNotNullObject(form.donationAmount);
+    flag = flag && validator.isNotNullObject(form.donationDate);
+    flag = flag && validator.isNotNullObject(form.purpose);
 
     return flag;
   }
 
   populateForm(form, data) {
     form.id = data.id;
-    form.eventName = data.eventName;
-    form.bookingDate = data.bookingDate;
-    form.seats = data.seats;
+    form.donorName = data.donorName;
+    form.donationAmount = data.donationAmount;
+    form.donationDate = data.donationDate;
+    form.purpose = data.purpose;
   }
 
   validateName(event: KeyboardEvent): void {

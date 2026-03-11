@@ -50,6 +50,8 @@ import { BankComponent } from './bank/bank.component';
 import { BankListComponent } from './bank/bank-list.component';
 import { EventComponent } from './event/event.component';
 import { EventListComponent } from './event/event-list.component';
+import { CharityComponent } from './charity/charity.component';
+import { CharityListComponent } from './charity/charity-list.component';
 
 
 
@@ -355,6 +357,18 @@ const routes: Routes = [
     {
         path: 'eventlist',
         component: EventListComponent
+    },
+    {
+        path: 'charity',
+        component: CharityComponent
+    },
+    {
+        path: 'charity/:id',
+        component: CharityComponent
+    },
+    {
+        path: 'charitylist',
+        component: CharityListComponent
     }
         
         

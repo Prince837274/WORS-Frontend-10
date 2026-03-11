@@ -36,6 +36,9 @@ export class EndpointServiceService {
   public BANK= this.SERVER_URL + "/Bank"
  
   public EVENT = this.SERVER_URL + "/Event"
+
+  public CHARITY = this.SERVER_URL + "/Charity"
+ 
  
  
  
