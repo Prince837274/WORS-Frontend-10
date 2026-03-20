@@ -15,13 +15,7 @@ export class EventComponent extends BaseCtl implements OnInit {
   constructor(public locator: ServiceLocatorService, public route: ActivatedRoute) {
     super(locator.endpoints.EVENT, locator, route);
   }
-<<<<<<< HEAD
-=======
-  
->>>>>>> e24fe8e65a698f0d28262694902c475229192e73
-   onUpload(userform: FormData) {
-    this.submit();
-    console.log(this.form.data.id + '---- after submit');
+
 
   }
 
