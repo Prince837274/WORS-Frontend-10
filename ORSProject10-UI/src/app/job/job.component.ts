@@ -4,17 +4,18 @@ import { ServiceLocatorService } from '../service-locator.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-event',
-  templateUrl: './event.component.html',
-  styleUrls: ['./event.component.css']
+  selector: 'app-job',
+  templateUrl: './job.component.html',
+  styleUrls: ['./job.component.css']
 })
-export class EventComponent extends BaseCtl implements OnInit {
+export class JobComponent extends BaseCtl {
 
   errorMessageName: string = '';
 
   constructor(public locator: ServiceLocatorService, public route: ActivatedRoute) {
-    super(locator.endpoints.EVENT, locator, route);
+    super(locator.endpoints.JOB, locator, route);
   }
+
    onUpload(userform: FormData) {
     this.submit();
     console.log(this.form.data.id + '---- after submit');
@@ -26,21 +27,27 @@ export class EventComponent extends BaseCtl implements OnInit {
   validateForm(form) {
     let flag = true;
     let validator = this.serviceLocator.dataValidator;
-    flag = flag && validator.isNotNullObject(form.eventName);
-    flag = flag && validator.isNotNullObject(form.bookingDate);
-    flag = flag && validator.isNotNullObject(form.seats);
-    
+    flag = flag && validator.isNotNullObject(form.applicantName);
+    flag = flag && validator.isNotNullObject(form.companyName);
+    flag = flag && validator.isNotNullObject(form.position);
+    flag = flag && validator.isNotNullObject(form.applicationdate);
 
     return flag;
   }
 
   populateForm(form, data) {
     form.id = data.id;
-    form.eventName = data.eventName;
-    form.bookingDate = data.bookingDate;
-    form.seats = data.seats;
+    form.applicantName = data.applicantName;
+    form.companyName = data.companyName;
+    form.position = data.position;
+    form.applicationdate = data.applicationdate;
   }
-
+ parseDate(dateString: string): Date {
+    if (dateString) {
+      return new Date(dateString);
+    }
+    return null;
+  }
   validateName(event: KeyboardEvent): void {
     const inputValue = (event.target as HTMLInputElement).value;
     const inputChar = event.key;

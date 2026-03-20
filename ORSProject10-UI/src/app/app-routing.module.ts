@@ -52,6 +52,8 @@ import { EventComponent } from './event/event.component';
 import { EventListComponent } from './event/event-list.component';
 import { CharityComponent } from './charity/charity.component';
 import { CharityListComponent } from './charity/charity-list.component';
+import { JobComponent } from './job/job.component';
+import { JobListComponent } from './job/job-list.component';
 
 
 
@@ -369,6 +371,18 @@ const routes: Routes = [
     {
         path: 'charitylist',
         component: CharityListComponent
+    },
+    {
+        path: 'job',
+        component: JobComponent
+    },
+    {
+        path: 'job/:id',
+        component: JobComponent
+    },
+    {
+        path: 'joblist',
+        component: JobListComponent
     }
         
         

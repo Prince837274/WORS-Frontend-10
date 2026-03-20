@@ -38,6 +38,9 @@ export class EndpointServiceService {
   public EVENT = this.SERVER_URL + "/Event"
 
   public CHARITY = this.SERVER_URL + "/Charity"
+
+    public JOB = this.SERVER_URL + "/Job"
+
  
  
  

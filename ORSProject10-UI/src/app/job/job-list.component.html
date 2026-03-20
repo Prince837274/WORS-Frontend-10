@@ -50,27 +50,29 @@
   <div class="container-fluid">
     <div class="panel panel-primary" style="padding-top: 12%;">
       <div class="panel-heading">
-        <h1 class="text-primary font-weight-bold">{{ 'Event List' | translate }}</h1>
+        <h1 class="text-primary font-weight-bold">{{ 'Job List' | translate }}</h1>
       </div>
 
-      <div class="row search-inputs p-1 justify-content-center g-3">
+      <div class="row search-inputs p-1 justify-content-center g-20">
         <div class="col-sm-2">
-          <input type="text" name="seats" [(ngModel)]="form.searchParams.seats" class="form-control"
-            placeholder="{{ 'Enter seats' | translate }}">
-          <span *ngIf="errorMessageseats" class="alertRedColor">{{ errorMessageseats }}</span>
+          <input type="text" name="applicantName" [(ngModel)]="form.searchParams.applicantName" class="form-control"
+            placeholder="{{ 'Enter applicantName' | translate }}">
+          <span *ngIf="errorMessageapplicantName" class="alertRedColor">{{ errorMessageapplicantName }}</span>
         </div>
 
+
+
         
 
         
 
         <div class="col-sm-2">
-          <select class="form-control" name="eventName" [(ngModel)]="form.searchParams.eventName"
+          <select class="form-control" name="position" [(ngModel)]="form.searchParams.purpose"
             aria-label="ngSelected" required>
-            <option [ngValue]="undefined">{{ 'Select eventName' | translate }}</option>
-            <option value="Music Festival">{{ 'Music Festival' | translate }}</option>
-            <option value="Tech Conference">{{ 'Tech Conference' | translate }}</option>
-            <option value="Startup Meetup">{{ 'Startup Meetup' | translate }}</option>
+            <option [ngValue]="undefined">{{ 'Select position' | translate }}</option>
+            <option value="HR">{{ 'HR' | translate }}</option>
+            <option value="Software Developer">{{ 'Software Developer' | translate }}</option>
+            <option value="Manager">{{ 'Manager' | translate }}</option>
           </select>
         </div>
 
@@ -79,8 +81,8 @@
         </div>
 
         <div>
-          <button (click)="forward('/event')" type="button" class="btn btn-success w-100">
-            {{ 'Add Event' | translate }}
+          <button (click)="forward('/job')" type="button" class="btn btn-success w-100">
+            {{ 'Add Job' | translate }}
           </button>
         </div>
 
@@ -107,9 +109,10 @@
               <th><input type="checkbox" [(ngModel)]="isMasterSel" name="list_name"
                   (change)="checkUncheckAll($event)" /></th>
               <th>{{ 'S.No' | translate }}</th>
-              <th>{{ 'EventName' | translate }}</th>
-              <th> {{ 'BookingDate' | translate}} </th>
-              <th>{{ 'Seats' | translate }}</th>
+              <th>{{ 'ApplicantName' | translate }}</th>
+              <th>{{ 'CompanyName' | translate }}</th>
+              <th> {{ 'Position' | translate}} </th>
+              <th>{{ 'ApplicationDate' | translate }}</th>
               <th>{{ 'Edit' | translate }}</th>
             </tr>
           </thead>
@@ -117,13 +120,15 @@
             <tr *ngFor="let m of form.list; let i = index" align="center">
               <td><input type="checkbox" #checkboxes (change)="checklistUpdate()" name="list_name" [id]="m.id" /></td>
               <td>{{ (form.pageNo * 5) + i + 1 }}</td>
-              <td>{{ m.eventName }}</td>
-              <td>{{ m.bookingDate | date : 'dd-MM-yyyy' }} </td>
-              <td>{{ m.seats }}</td>
+              <td>{{ m.applicantName }}</td>
+              <td>{{ m.companyName }}</td>
+               <td>{{ m.position }}</td>
+              <td>{{ m.applicationDate | date : 'dd-MM-yyyy' }} </td>
+              
               
 
               <td>
-                <button class="fa fa-edit text-primary" id="nnn" (click)="forward('/event/' + m.id)">
+                <button class="fa fa-edit text-primary" id="nnn" (click)="forward('/job/' + m.id)">
                 </button>
               </td>
             </tr>
@@ -135,13 +140,13 @@
             }}</button>
 
           <div>
-            <a class="btn btn-warning mr-1" [routerLink]="['/eventlist']" (click)="exit()">
+            <a class="btn btn-warning mr-1" [routerLink]="['/joblist']" (click)="exit()">
               {{ 'Reset' | translate }}
             </a>
           </div>
 
           <div *ngIf="form.list.length == 0">
-            <a class="btn btn-warning mr-1" [routerLink]="['/eventlist']" (click)="exit()">
+            <a class="btn btn-warning mr-1" [routerLink]="['/joblist']" (click)="exit()">
               {{ 'Back' | translate }}
             </a>
           </div>

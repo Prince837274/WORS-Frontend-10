@@ -72,6 +72,8 @@ import { EventComponent } from './event/event.component';
 import { EventListComponent } from './event/event-list.component';
 import { CharityComponent } from './charity/charity.component';
 import { CharityListComponent } from './charity/charity-list.component';
+import { JobComponent } from './job/job.component';
+import { JobListComponent } from './job/job-list.component';
 
 
 
@@ -145,7 +147,9 @@ export function myHttpLoader(http: HttpClient) {
     EventComponent,
     EventListComponent,
     CharityComponent,
-    CharityListComponent
+    CharityListComponent,
+    JobComponent,
+    JobListComponent
  
 
     
