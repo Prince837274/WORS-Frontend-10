@@ -1,0 +1,167 @@
+<app-navbar></app-navbar>
+
+<style>
+  .grad {
+    background-image: linear-gradient(to bottom right, rgb(32, 168, 168), rgb(219, 231, 237));
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding-bottom: 25px;
+  }
+
+  .background {
+    padding-top: 3%;
+    padding-bottom: 13%;
+    background: url('assets/files/wall.jpg') no-repeat center center;
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+    height: auto;
+  }
+
+  .required-field {
+    color: red;
+  }
+
+  .alertRedColor {
+    color: red;
+  }
+</style>
+
+
+<div class="container-fluid background" style="padding-top: 12%">
+  <div class="row justify-content-center">
+    <div class="col-sm-8 col-md-6 col-lg-4">
+      <div class="card" >
+        <div class="card-body shadow-lg grad">
+          <form name="assetForm">
+            <h2 *ngIf="!form.data.id" class="text-primary font-weight-bold" style="text-align: center;">
+              {{ 'Add Vaccine' | translate }}
+            </h2>
+            <h2 *ngIf="form.data.id" class="text-primary font-weight-bold" style="text-align: center;">
+              {{ 'Update Vaccine' | translate }}
+            </h2>
+
+            <!-- Form error messages -->
+            <div *ngIf="form.error && form.message" class="alert alert-danger alert-dismissible fade show">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              {{ form.message }}
+            </div>
+            <div *ngIf="!form.error && form.message" class="alert alert-success alert-dismissible fade show">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              {{ form.message }}
+            </div>
+
+            <!-- Name Field with Validation -->
+
+            <div class="form-group pt-2">
+              <label><b>{{ 'VaccineName' | translate }}</b><span class="required-field">*</span></label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-paint-brush grey-text"></i></div>
+                </div>
+                <select class="form-control" name="vaccineName" [(ngModel)]="form.data.vaccineName"
+                  aria-label="ngSelected" required>
+                  <option [ngValue]="undefined">{{ 'Select vaccineName' | translate }}</option>
+                  <option value="Covishield">{{ 'Covishield' | translate }}</option>
+                  <option value="Pfizer">{{ 'Pfizer' | translate }}</option>
+                  <option value="Covaxin">{{ 'Covaxin' | translate }}</option>
+                  <option value="Moderna">{{ 'Moderna' | translate }}</option>
+                   <option value="BCG">{{ 'BCG' | translate }}</option>
+                   <option value="Polio">{{ 'Polio' | translate }}</option>
+                   <option value="Tetanus">{{ 'Tetanus' | translate }}</option>
+                   <option value="Hepatitis B">{{ 'Hepatitis B' | translate }}</option>
+    
+                </select>
+              </div>
+              <span *ngIf="form.inputerror?.vaccineName" class="alertRedColor">{{ form.inputerror.vaccineName }}</span>
+            </div>
+
+
+            <div class="form-group pt-2">
+              <label>
+                <b>{{ 'Manufacturer' | translate }}</b>
+                <span class="required-field">*</span>
+              </label>
+
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <i class="fa fa-phone grey-text"></i>
+                  </div>
+                </div>
+
+                <input type="text" name="manufacturer" [(ngModel)]="form.data.manufacturer" #contactNumber="ngModel"
+                  class="form-control"  maxlength="100" 
+                  
+                  placeholder="{{ 'Enter Manufacturer' | translate }}">
+              </div>
+
+              <!-- Custom validation messages from component -->
+              <span *ngIf="form.inputerror?.manufacturer" class="alertRedColor">{{ form.inputerror.manufacturer
+                }}</span>
+            </div>
+
+
+
+
+            <!-- Dob-->
+
+          <div>
+         
+             <span class="pt-2"><b>{{'ExpiryDate' | translate }}</b>
+              <span class="required-field"></span></span>
+
+            <div class="col-sm-12">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-table grey-text"></i> </div>
+                </div>
+                <input type="date" name="expiryDate" [value]="form.data.expiryDate | date:'yyyy-MM-dd'"
+                  (input)="form.data.expiryDate=parseDate($event.target.value)" class="form-control form-control-sm"
+                  required />
+              </div>
+            </div>
+<span *ngIf="form.inputerror.expiryDate != null" class="alertRedColor" style=" color: red;"> {{form.inputerror.expiryDate}} </span>
+            
+          </div>
+
+
+            
+                
+            
+
+            <div class="row pt-2 pl-2 pb-3">
+
+              <div class="col-md-3"></div>
+
+              <div class="pt-2">
+                <button *ngIf="!form.data.id > 0" (click)="submit()" class="btn btn-success mr-2">
+                  {{ 'Save' | translate }}
+                </button>
+              </div>
+
+              <div class="col-md-1"></div>
+
+              <div class="pt-2">
+                <button *ngIf="form.data.id > 0" (click)="submit()" class="btn btn-success mr-2">
+                  {{ 'Update' | translate }}
+                </button>
+              </div>
+
+              <div class="pt-2">
+                <a class="btn btn-warning mr-1" type="button" [routerLink]="['/vaccinelist']"
+                  style="text-decoration: none; color: white;">
+                  {{ 'List' | translate }}
+                </a>
+              </div>
+
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

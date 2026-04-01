@@ -4,16 +4,16 @@ import { ServiceLocatorService } from '../service-locator.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-event',
-  templateUrl: './event.component.html',
-  styleUrls: ['./event.component.css']
+  selector: 'app-vaccine',
+  templateUrl: './vaccine.component.html',
+  styleUrls: ['./vaccine.component.css']
 })
-export class EventComponent extends BaseCtl implements OnInit {
+export class VaccineComponent extends BaseCtl implements OnInit {
 
   errorMessageName: string = '';
 
   constructor(public locator: ServiceLocatorService, public route: ActivatedRoute) {
-    super(locator.endpoints.EVENT, locator, route);
+    super(locator.endpoints.VACCINE, locator, route);
   }
    onUpload(userform: FormData) {
     this.submit();
@@ -26,9 +26,9 @@ export class EventComponent extends BaseCtl implements OnInit {
   validateForm(form) {
     let flag = true;
     let validator = this.serviceLocator.dataValidator;
-    flag = flag && validator.isNotNullObject(form.eventName);
-    flag = flag && validator.isNotNullObject(form.bookingDate);
-    flag = flag && validator.isNotNullObject(form.seats);
+    flag = flag && validator.isNotNullObject(form.vaccineName);
+    flag = flag && validator.isNotNullObject(form.manufacturer);
+    flag = flag && validator.isNotNullObject(form.expiryDate);
     
 
     return flag;
@@ -36,9 +36,9 @@ export class EventComponent extends BaseCtl implements OnInit {
 
   populateForm(form, data) {
     form.id = data.id;
-    form.eventName = data.eventName;
-    form.bookingDate = data.bookingDate;
-    form.seats = data.seats;
+    form.vaccineName = data.vaccineName;
+    form.manufacturer = data.manufacturer;
+    form.expiryDate = data.expiryDate;
   }
 
   validateName(event: KeyboardEvent): void {
@@ -72,5 +72,6 @@ export class EventComponent extends BaseCtl implements OnInit {
   }
 
 }
+
 
 

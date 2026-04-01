@@ -74,6 +74,8 @@ import { CharityComponent } from './charity/charity.component';
 import { CharityListComponent } from './charity/charity-list.component';
 import { JobComponent } from './job/job.component';
 import { JobListComponent } from './job/job-list.component';
+import { VaccineComponent } from './vaccine/vaccine.component';
+import { VaccineListComponent } from './vaccine/vaccine-list.component';
 
 
 
@@ -149,7 +151,9 @@ export function myHttpLoader(http: HttpClient) {
     CharityComponent,
     CharityListComponent,
     JobComponent,
-    JobListComponent
+    JobListComponent,
+    VaccineComponent,
+    VaccineListComponent
  
 
     

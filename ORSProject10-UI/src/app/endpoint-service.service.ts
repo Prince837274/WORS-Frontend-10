@@ -41,6 +41,10 @@ export class EndpointServiceService {
 
     public JOB = this.SERVER_URL + "/Job"
 
+    public VACCINE = this.SERVER_URL + "/Vaccine"
+
+ 
+
  
  
  

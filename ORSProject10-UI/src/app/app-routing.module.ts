@@ -54,6 +54,8 @@ import { CharityComponent } from './charity/charity.component';
 import { CharityListComponent } from './charity/charity-list.component';
 import { JobComponent } from './job/job.component';
 import { JobListComponent } from './job/job-list.component';
+import { VaccineComponent } from './vaccine/vaccine.component';
+import { VaccineListComponent } from './vaccine/vaccine-list.component';
 
 
 
@@ -383,6 +385,18 @@ const routes: Routes = [
     {
         path: 'joblist',
         component: JobListComponent
+    },
+    {
+        path: 'vaccine',
+        component: VaccineComponent
+    },
+    {
+        path: 'vaccine/:id',
+        component: VaccineComponent
+    },
+    {
+        path: 'vaccinelist',
+        component: VaccineListComponent
     }
         
         
