@@ -56,6 +56,12 @@ import { JobComponent } from './job/job.component';
 import { JobListComponent } from './job/job-list.component';
 import { VaccineComponent } from './vaccine/vaccine.component';
 import { VaccineListComponent } from './vaccine/vaccine-list.component';
+import { PipelineComponent } from './pipeline/pipeline.component';
+import { PipelineListComponent } from './pipeline/pipeline-list.component';
+import { MediaComponent } from './media/media.component';
+import { MediaListComponent } from './media/media-list.component';
+
+
 
 
 
@@ -397,7 +403,32 @@ const routes: Routes = [
     {
         path: 'vaccinelist',
         component: VaccineListComponent
+    },
+    {
+        path: 'pipeline',
+        component: PipelineComponent
+    },
+    {
+        path: 'pipeline/:id',
+        component: PipelineComponent
+    },
+    {
+        path: 'pipelinelist',
+        component: PipelineListComponent
+    },
+    {
+        path: 'media',
+        component: MediaComponent
+    },
+    {
+        path: 'media/:id',
+        component: MediaComponent
+    },
+    {
+        path: 'medialist',
+        component: MediaListComponent
     }
+    
         
         
 

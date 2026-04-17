@@ -90,6 +90,21 @@
 <li class="nav-item dropdown" style="padding-left: 5px">
         <a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button"
           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <font style="color: white">{{ "Media" | translate }}</font>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['/media']"><i class="fa fa-university"></i> &nbsp;
+            {{ "Add Media" | translate }}</a>
+          <a class="dropdown-item" [routerLink]="['/medialist']"><i class="fa fa-building"></i> &nbsp;
+            {{ "Media List" | translate }}
+          </a>
+        </div>
+
+
+
+<li class="nav-item dropdown" style="padding-left: 5px">
+        <a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <font style="color: white">{{ "Charity" | translate }}</font>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -97,6 +112,19 @@
             {{ "Add Charity" | translate }}</a>
           <a class="dropdown-item" [routerLink]="['/charitylist']"><i class="fa fa-building"></i> &nbsp;
             {{ "Charity List" | translate }}
+          </a>
+        </div>
+
+        <li class="nav-item dropdown" style="padding-left: 5px">
+        <a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <font style="color: white">{{ "Pipeline" | translate }}</font>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['/pipeline']"><i class="fa fa-university"></i> &nbsp;
+            {{ "Add Pipeline" | translate }}</a>
+          <a class="dropdown-item" [routerLink]="['/pipelinelist']"><i class="fa fa-building"></i> &nbsp;
+            {{ "Pipeline List" | translate }}
           </a>
         </div>
 

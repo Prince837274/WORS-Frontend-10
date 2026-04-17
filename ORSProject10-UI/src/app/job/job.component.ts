@@ -80,4 +80,3 @@ export class JobComponent extends BaseCtl {
 
 }
 
-

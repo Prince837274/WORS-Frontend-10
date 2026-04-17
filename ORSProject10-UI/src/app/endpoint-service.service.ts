@@ -43,6 +43,16 @@ export class EndpointServiceService {
 
     public VACCINE = this.SERVER_URL + "/Vaccine"
 
+    public PIPELINE = this.SERVER_URL + "/Pipeline"
+
+    public MEDIA = this.SERVER_URL + "/Media"
+
+
+
+
+
+
+
  
 
  
