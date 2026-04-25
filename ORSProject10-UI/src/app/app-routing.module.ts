@@ -60,6 +60,8 @@ import { PipelineComponent } from './pipeline/pipeline.component';
 import { PipelineListComponent } from './pipeline/pipeline-list.component';
 import { MediaComponent } from './media/media.component';
 import { MediaListComponent } from './media/media-list.component';
+import { DataComponent } from './data/data.component';
+import { DatalistComponent } from './data/datalist.component';
 
 
 
@@ -427,6 +429,18 @@ const routes: Routes = [
     {
         path: 'medialist',
         component: MediaListComponent
+    },
+    {
+        path: 'data',
+        component: DataComponent
+    },
+    {
+        path: 'data/:id',
+        component: DataComponent
+    },
+    {
+        path: 'datalist',
+        component: DatalistComponent
     }
     
         

@@ -47,6 +47,8 @@ export class EndpointServiceService {
 
     public MEDIA = this.SERVER_URL + "/Media"
 
+      public DATA = this.SERVER_URL + "/Data"
+
 
 
 

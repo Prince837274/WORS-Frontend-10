@@ -65,8 +65,7 @@
                 </div>
 
                 <input type="text" name="mediaCode" [(ngModel)]="form.data.mediaCode" class="form-control"
-                  #clientName="ngModel" maxlength="20" pattern="^[A-Za-z ]+$"
-                  (keydown)="filterInputS($event, 'errorMessageclientName', 20, 'char')"
+                  #clientName="ngModel" maxlength="20"
                   placeholder="{{ 'Enter MediaCode' | translate }}">
               </div>
 

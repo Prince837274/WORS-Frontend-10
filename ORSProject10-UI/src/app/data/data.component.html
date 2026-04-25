@@ -1,0 +1,133 @@
+<app-navbar></app-navbar>
+
+<style>
+  .grad {
+    background-image: linear-gradient(to bottom right, rgb(32, 168, 168), rgb(219, 231, 237));
+    background-repeat: no repeat;
+    background-size: 100%;
+    padding-bottom: 25px;
+  }
+</style>
+
+<div class="row " style="padding-top: 10%; padding-bottom:13%;
+background: url(assets/files/wall.jpg) no-repeat center center;
+background-attachment: fixed;
+background-size: cover;width:auto;
+  height: auto;">
+
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body shadow-lg grad">
+        <form>
+          <h2 *ngIf="!form.data.id>0" class="text-primary font-weight-bold" style="text-align: center;">{{'Add
+            DATA' | translate}}</h2>
+          <h2 *ngIf="form.data.id>0" class="text-primary font-weight-bold" style="text-align: center;">{{'Update DATA' | translate}}</h2>
+
+
+
+          <!-- Form error messages -->
+            <div *ngIf="form.error && form.message" class="text-danger alert-dismissible fade show">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              {{ form.message }}
+            </div>
+            <div *ngIf="!form.error && form.message" class="alert alert-success alert-dismissible fade show">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              {{ form.message }}
+            </div>
+
+          <div style="padding-top:3%">
+            <span class="pt-2"><b>{{' importLogCode' | translate}}</b>
+              <span class="required-field"></span></span>
+            <div class="col-sm-12">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-file grey-text"></i> </div>
+                </div>
+                <input type="text" name="importLogCode" [(ngModel)]="form.data.importLogCode" class="form-control"
+                  placeholder="{{'Enter  importLogCode' | translate}}">
+              </div>
+            </div>
+            <span *ngIf="form.inputerror.importLogCode" class="text-danger">{{ form.inputerror.importLogCode }}</span>
+            </div>
+
+
+
+
+
+           <div style="padding-top:3%">
+            <span class="pt-2"><b>{{' fileName' | translate}}</b>
+              <span class="required-field"></span></span>
+            <div class="col-sm-12">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-file grey-text"></i> </div>
+                </div>
+                <input type="text" name="fileName" [(ngModel)]="form.data.fileName" class="form-control"
+                  placeholder="{{'Enter  fileName' | translate}}">
+              </div>
+            </div>
+            <span *ngIf="form.inputerror.fileName" class="text-danger">{{ form.inputerror.fileName }}</span>
+            </div>
+
+
+
+             <div style="padding-top:3%">
+            <span class="pt-2"><b>{{' importedBy' | translate}}</b>
+              <span class="required-field"></span></span>
+            <div class="col-sm-12">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-file grey-text"></i> </div>
+                </div>
+                <input type="text" name="importedBy" [(ngModel)]="form.data.importedBy" class="form-control"
+                  placeholder="{{'Enter  importedBy' | translate}}">
+              </div>
+            </div>
+            <span *ngIf="form.inputerror.importedBy" class="text-danger">{{ form.inputerror.importedBy }}</span>
+            </div>
+
+
+
+          <div style="padding-top:3%">
+            <span class="pt-2"><b>{{'status' | translate}}</b>
+              <span class="required-field"></span></span>
+            <div class="col-sm-12">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-bars grey-text"></i> </div>
+                </div>
+              
+                <select class="form-control" name="status" [(ngModel)]="form.data.status"
+                  style="cursor: pointer;">
+                  <option [ngValue]="" value="undefined">{{'select status ' | translate }}</option>
+                  <option value="active">{{'active' | translate }} </option>
+                  <option value="inactive">{{'inactive' | translate }} </option>
+                </select>
+              </div>
+            </div>
+            <span *ngIf="form.inputerror.status" class="text-danger">{{ form.inputerror.status }}</span>
+            </div>
+
+
+          <div class="row pt-3 pl-3 pb-3">
+            <div class="pt-2">
+              <button *ngIf="!form.data.id>0" (click)="submit()" class="btn btn-success mr-2">
+                {{'Save' | translate}}</button>
+            </div>
+            <div class="pt-2">
+              <button *ngIf="form.data.id>0" (click)="submit()" class="btn btn-success mr-2">
+                {{'Update' | translate}}</button>
+            </div>
+            <div class="pt-2">
+              <button (click)="forward('/datalist')" type="button" class="btn btn-warning mr-1">{{'List' |
+                translate}}
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
